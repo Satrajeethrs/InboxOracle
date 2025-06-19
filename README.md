@@ -21,13 +21,20 @@ A Python application that integrates with Gmail API to fetch emails, store them 
 
 ## Setup
 
-1. **Install Dependencies**
+1. **Create Virtual Environment**
 
 ```bash
-pip3 install -r requirements.txt
+python3 -m venv myenv
+source myenv/bin/activate  # On Windows: myenv\Scripts\activate
 ```
 
-2. **Set up Google Cloud Project and OAuth Credentials**
+2. **Install Dependencies**
+
+```bash
+pip install -r requirements.txt
+```
+
+3. **Set up Google Cloud Project and OAuth Credentials**
 
 - Go to [Google Cloud Console](https://console.cloud.google.com)
 - Create a new project or select an existing one
@@ -42,17 +49,29 @@ pip3 install -r requirements.txt
 ```bash
 git clone <repository-url>
 cd gmail-rule-processor
-pip3 install -r requirements.txt
+
+# Create and activate virtual environment
+python3 -m venv myenv
+source myenv/bin/activate  # On Windows: myenv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
 ```
 
 2. **Add Credentials**
 - Place your `credentials.json` file in the project root
 
-3. **Initialize and Run**
+3. **Authenticate with Gmail**
 ```bash
-python3 models.py                    # Initialize database
-python3 fetch_emails.py              # Fetch emails (choose option 1 for testing)
-python3 process_rules.py             # Process rules (choose option 1 for testing)
+python auth.py
+```
+This will open a browser window for OAuth authentication. Complete the authentication flow.
+
+4. **Initialize and Run**
+```bash
+python models.py                    # Initialize database
+python fetch_emails.py              # Fetch emails (choose option 1 for testing)
+python process_rules.py             # Process rules (choose option 1 for testing)
 ```
 
 ## Project Structure
@@ -304,3 +323,6 @@ python3 models.py
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+##Video Demonstration Link
+https://drive.google.com/file/d/1Vvs4SoqpFJFjNU3FQ7DwRftkPP9wgqtX/view?usp=sharing
