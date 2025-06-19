@@ -1,0 +1,83 @@
+{
+    "rules": [
+        {
+            "name": "Mark as Read Example",
+            "description": "Mark as read if the sender contains 'example@domain.com'",
+            "conditions": {
+                "predicate": "Any",
+                "rules": [
+                    { "field": "From", "predicate": "Contains", "value": "satrajithrs@gmail.com" }
+                ]
+            },
+            "actions": [
+                { "type": "mark_as_read", "params": {} }
+            ]
+        },
+        {
+            "name": "Move to Spam Example",
+            "description": "Move to Spam if the sender contains 'spammer@bad.com'",
+            "conditions": {
+                "predicate": "Any",
+                "rules": [
+                    { "field": "From", "predicate": "Contains", "value": "1by22ai083@bmsit.in" }
+                ]
+            },
+            "actions": [
+                { "type": "move_message", "params": { "label": "Spam" } }
+            ]
+        },
+        {
+            "name": "Starred Message Example",
+            "description": "Star the message if the subject contains 'Important'",
+            "conditions": {
+                "predicate": "Any",
+                "rules": [
+                    { "field": "Subject", "predicate": "Contains", "value": "Important" }
+                ]
+            },
+            "actions": [
+                { "type": "add_star", "params": {} }
+            ]
+        },
+        {
+            "name": "Label the Message Example",
+            "description": "Label the message as 'Work' if the subject contains 'Project'",
+            "conditions": {
+                "predicate": "Any",
+                "rules": [
+                    { "field": "Subject", "predicate": "Contains", "value": "Project" }
+                ]
+            },
+            "actions": [
+                { "type": "move_message", "params": { "label": "Work" } }
+            ]
+        },
+        {
+            "name": "Move to Trash Example",
+            "description": "Move to Trash if the subject contains 'Spam Offer'",
+            "conditions": {
+                "predicate": "Any",
+                "rules": [
+                    { "field": "Subject", "predicate": "Contains", "value": "Spam Offer" }
+                ]
+            },
+            "actions": [
+                { "type": "move_to_trash", "params": {} }
+            ]
+        },
+        {
+            "name": "Mark as Unread and Archive",
+            "description": "Mark as unread and archive if the subject contains 'Mark as unread'",
+            "conditions": {
+                "predicate": "Any",
+                "rules": [
+                    { "field": "Subject", "predicate": "Contains", "value": "Mark as unread" }
+                ]
+            },
+            "actions": [
+                { "type": "mark_as_unread", "params": {} },
+                { "type": "archive_message", "params": {} }
+            ]
+        }
+    ]
+}
